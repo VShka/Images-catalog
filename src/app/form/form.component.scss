@@ -1,0 +1,21 @@
+@mixin displayFlex {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  @include displayFlex();
+  margin: 20px 0;
+
+  .form {
+    width: 20%;
+
+    .form__input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid rgba($color: #ccc, $alpha: 1);
+      border-radius: 5px;
+      outline: none;
+    }
+  }
+}
