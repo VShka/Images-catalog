@@ -1,6 +1,5 @@
 <section class="button__container">
-  <button class="button button_download">Загрузить</button>
-  <button class="button button_delete">Удалить</button>
-  <button class="button button_group">Группировать</button>
+  <button (click)="sendRequest()" class="button button_download">Загрузить</button>
+  <button (click)="deleteCatalog()" class="button button_delete">Удалить</button>
+  <button (click)="toggleState()" class="button button_group">{{defaultBtnState}}</button>
 </section>
-
