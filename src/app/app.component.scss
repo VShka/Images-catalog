@@ -1,3 +1,18 @@
+@mixin displayFlex {
+  display: flex;
+  justify-content: center;
+}
+
 body {
   max-width: 2560px;
 }
+
+.container {
+  @include displayFlex();
+  margin: 20px 0;
+
+  .form__container {
+    width: 20%;
+  }
+}
+
