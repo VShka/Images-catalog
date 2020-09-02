@@ -10,9 +10,5 @@ body {
 .container {
   @include displayFlex();
   margin: 20px 0;
-
-  .form__container {
-    width: 20%;
-  }
 }
 

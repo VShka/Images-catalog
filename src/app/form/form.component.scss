@@ -1,8 +1,14 @@
-.form__input {
-  width: 90%;
-  padding: 10px 15px;
-  border: 1px solid rgba($color: #ccc, $alpha: 1);
-  border-radius: 5px;
-  outline: none;
-}
 
+.form {
+  width: 100%;
+  margin-right: 100px;
+
+  .form__input {
+    width: 80%;
+    padding: 10px 15px;
+    border: 1px solid rgba($color: #ccc, $alpha: 1);
+    border-radius: 5px;
+    outline: none;
+  }
+
+}
