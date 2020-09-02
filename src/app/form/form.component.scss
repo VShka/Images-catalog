@@ -11,4 +11,14 @@
     outline: none;
   }
 
+  .form__error {
+    width: 50%;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(189, 6, 6, .7);
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+  }
+
 }
