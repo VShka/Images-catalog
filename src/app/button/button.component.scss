@@ -1,0 +1,50 @@
+@mixin buttonDefault {
+  padding: 9px;
+  color: rgba(255, 255, 255, .9);
+  font-size: 14px;
+  letter-spacing: .5px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+.button__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+
+  .button {
+    @include buttonDefault();
+  }
+
+  .button_download {
+    background-color: rgba(5, 185, 5, .9);
+
+    &:hover {
+      background-color: rgba(5, 185, 5, .7);
+    }
+    &:active {
+      opacity: .5;
+    }
+  }
+  .button_delete {
+    background-color: rgba(255, 0, 0, .7);
+
+    &:hover {
+      background-color: rgba(255, 0, 0, 1);
+    }
+    &:active {
+      opacity: .5;
+    }
+  }
+  .button_group {
+    background-color: rgba(0, 0, 255, .7);
+
+    &:hover {
+      background-color: rgba(0, 0, 255, 1);
+    }
+    &:active {
+      opacity: .5;
+    }
+  }
+}
