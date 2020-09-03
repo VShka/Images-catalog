@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RequestService } from '../services/request.service';
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -7,19 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   public btnState = {
     group: 'Группировать',
     ungroup: 'Разгруппировать'
   };
   public defaultBtnState = this.btnState.group;
+  public imageUrl: string;
+
 
   ngOnInit(): void {
   }
 
-  public sendRequest(): any {
-    console.log(`It's working!`);
+  public sendRequest(): void {
+    this.requestService.getImage().subscribe((image: any) => this.imageUrl = image.data.image_url);
   }
 
   public deleteCatalog(): void {
@@ -30,6 +34,7 @@ export class ButtonComponent implements OnInit {
     if (this.defaultBtnState === this.btnState.group) {
       return this.defaultBtnState = this.btnState.ungroup;
     }
+    console.log(this.imageUrl);
     return this.defaultBtnState = this.btnState.group;
   }
 

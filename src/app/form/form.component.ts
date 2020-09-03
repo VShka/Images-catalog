@@ -9,9 +9,7 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
-  public inputValue = {
-    tag: ''
-  };
+  public tag = '';
 
   ngOnInit(): void {
   }
