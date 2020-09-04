@@ -5,6 +5,7 @@
     name="tag"
     [(ngModel)]="inputValue.tag"
     #tag="ngModel"
+    (input)="getValue($event)"
     placeholder="Введите тег"
     required
   >

@@ -34,7 +34,6 @@ export class ButtonComponent implements OnInit {
     if (this.defaultBtnState === this.btnState.group) {
       return this.defaultBtnState = this.btnState.ungroup;
     }
-    console.log(this.imageUrl);
     return this.defaultBtnState = this.btnState.group;
   }
 
