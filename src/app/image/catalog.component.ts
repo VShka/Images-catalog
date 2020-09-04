@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../services/request.service';
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  selector: 'app-catalog',
+  templateUrl: './catalog.component.html',
+  styleUrls: ['./catalog.component.scss']
 })
-export class ButtonComponent implements OnInit {
+export class CatalogComponent implements OnInit {
 
   constructor(private requestService: RequestService) { }
 
@@ -18,9 +18,9 @@ export class ButtonComponent implements OnInit {
   public defaultBtnState = this.btnState.group;
   public imageUrl: string;
 
-
   ngOnInit(): void {
   }
+
 
   public sendRequest(): void {
     this.requestService.getImage().subscribe((image: any) => this.imageUrl = image.data.image_url);
@@ -36,5 +36,6 @@ export class ButtonComponent implements OnInit {
     }
     return this.defaultBtnState = this.btnState.group;
   }
+
 
 }

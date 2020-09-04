@@ -1,3 +1,9 @@
+<section class="button__container">
+  <button (click)="sendRequest()" class="button button_download">Загрузить</button>
+  <button (click)="deleteCatalog()" class="button button_delete">Удалить</button>
+  <button (click)="toggleState()" class="button button_group">{{defaultBtnState}}</button>
+</section>
+
 <div class="catalog__container">
   <div class="card">
     <img
