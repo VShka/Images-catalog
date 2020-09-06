@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ImageService } from '../services/image.service';
+import { RequestService } from '../services/request.service';
 
 @Component({
   selector: 'app-catalog',
@@ -10,25 +10,24 @@ import { ImageService } from '../services/image.service';
 export class CatalogComponent implements OnInit {
 
   public imagesUrl: any = [];
-  public state = 'Группировать';
+  public btnState = 'Группировать';
 
-  constructor(private imageService: ImageService) { }
+  constructor(private requestService: RequestService) {
+  }
 
   ngOnInit(): void {
   }
 
+  public addImage(): void {
+    this.requestService.getImage().subscribe((image: any) => {
+      const url = image.data.image_url;
 
-  public addImage(): any {
-    const imageUrl = this.imageService.getImageUrl();
-
-    console.log(imageUrl)
-
-    return this.imagesUrl.push(imageUrl);
+      this.imagesUrl.push(url);
+    });
   }
 
   public deleteCatalog(): void {
-    // console.log(this.imagesUrl);
-    // this.imagesUrl = [];
+    this.imagesUrl = [];
   }
 
   // изменение текста кнопки группировки
@@ -38,10 +37,10 @@ export class CatalogComponent implements OnInit {
       ungroup: 'Разгруппировать'
     };
 
-    if (this.state === twoStateBtn.group) {
-      this.state = twoStateBtn.ungroup;
+    if (this.btnState === twoStateBtn.group) {
+      this.btnState = twoStateBtn.ungroup;
     } else {
-      this.state = twoStateBtn.group;
+      this.btnState = twoStateBtn.group;
     }
   }
 

@@ -8,14 +8,15 @@ import { API_KEY, API_URL } from '../app.constants';
 })
 export class RequestService {
 
+  public tag: string;
+
   constructor(
     private http: HttpClient
     ) { }
 
-  public tag: string;
 
-  getTag(value: string): string {
-    return this.tag = value;
+  getTag(value: string): void {
+    this.tag = value;
   }
 
   getImage(): any {
