@@ -19,7 +19,6 @@ export class RequestService {
   }
 
   getImage(): any {
-    console.log(this.tag);
     return this.http.get(`${API_URL}api_key=${API_KEY}&tag=${this.tag}`);
   }
 }

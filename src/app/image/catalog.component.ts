@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RequestService } from '../services/request.service';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-catalog',
@@ -9,25 +9,30 @@ import { RequestService } from '../services/request.service';
 })
 export class CatalogComponent implements OnInit {
 
-  constructor(private requestService: RequestService) { }
-
+  public imagesUrl: any = [];
   public btnState = {
     group: 'Группировать',
     ungroup: 'Разгруппировать'
   };
   public defaultBtnState = this.btnState.group;
-  public imageUrl: string;
+
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
   }
 
 
-  public sendRequest(): void {
-    this.requestService.getImage().subscribe((image: any) => this.imageUrl = image.data.image_url);
+  public addImage(): any {
+    const imageUrl = this.imageService.getImageUrl();
+
+    console.log(imageUrl)
+
+    return this.imagesUrl.push(imageUrl);
   }
 
   public deleteCatalog(): void {
-    console.log('Its working');
+    // console.log(this.imagesUrl);
+    // this.imagesUrl = [];
   }
 
   public toggleState(): string {
