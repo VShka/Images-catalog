@@ -1,7 +1,16 @@
 <section class="button__container">
-  <button (click)="addImage()" class="button button_download">Загрузить</button>
-  <button (click)="deleteCatalog()" class="button button_delete">Удалить</button>
-  <button (click)="toggleState()" class="button button_group">{{defaultBtnState}}</button>
+  <button
+    (click)="addImage()"
+    class="button button_download"
+  >Загрузить</button>
+  <button
+    (click)="deleteCatalog()"
+    class="button button_delete"
+  >Удалить</button>
+  <button
+    (click)="toggleState()"
+    class="button button_group"
+  > {{state}} </button>
 </section>
 
 <div class="catalog__container">

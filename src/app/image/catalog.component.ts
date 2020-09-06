@@ -10,11 +10,7 @@ import { ImageService } from '../services/image.service';
 export class CatalogComponent implements OnInit {
 
   public imagesUrl: any = [];
-  public btnState = {
-    group: 'Группировать',
-    ungroup: 'Разгруппировать'
-  };
-  public defaultBtnState = this.btnState.group;
+  public state = 'Группировать';
 
   constructor(private imageService: ImageService) { }
 
@@ -35,11 +31,18 @@ export class CatalogComponent implements OnInit {
     // this.imagesUrl = [];
   }
 
-  public toggleState(): string {
-    if (this.defaultBtnState === this.btnState.group) {
-      return this.defaultBtnState = this.btnState.ungroup;
+  // изменение текста кнопки группировки
+  public toggleState(): void {
+    const twoStateBtn = {
+      group: 'Группировать',
+      ungroup: 'Разгруппировать'
+    };
+
+    if (this.state === twoStateBtn.group) {
+      this.state = twoStateBtn.ungroup;
+    } else {
+      this.state = twoStateBtn.group;
     }
-    return this.defaultBtnState = this.btnState.group;
   }
 
 
