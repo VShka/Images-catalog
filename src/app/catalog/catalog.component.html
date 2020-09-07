@@ -25,15 +25,18 @@
   </div>
 
   <div *ngIf="btnState === 'Разгруппировать'">
-    <div
-      class="card"
-      *ngFor="let image of arrGroupImages">
+    <div *ngFor="let image of arrGroupImages">
       <h3 [textContent]="image.tag"></h3>
-      <img
-      [src]="image.url"
-      alt="Картинка"
-      class="card__image">
+      <div
+        class="card"
+      >
+        <img
+          [src]="image.url"
+          alt="Картинка"
+          class="card__image">
+      </div>
     </div>
+
   </div>
 
 </div>
