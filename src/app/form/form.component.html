@@ -3,6 +3,20 @@
     type="text"
     class="form__input"
     name="tag"
-    placeholder="Введите тег">
+    [(ngModel)]="inputValue.tag"
+    #tag="ngModel"
+    (input)="getValue($event)"
+    placeholder="Введите тег"
+    required
+  >
+
+  <!-- валидация формы -->
+  <div *ngIf="tag.invalid && (tag.dirty || tag.touched)">
+    <div
+      class="form__error"
+      *ngIf="tag.errors.required">
+      Заполните поле 'тег'
+    </div>
+  </div>
 </form>
 

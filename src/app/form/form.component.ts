@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RequestService } from '../services/request.service';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private requestService: RequestService) { }
+
+  public inputValue = {
+    tag: ''
+  };
+
 
   ngOnInit(): void {
+  }
+
+  getValue(event): void {
+    // получаем значение поля инпут и передаём в сервис
+    const value = event.target.value;
+    this.requestService.getTag(value);
   }
 
 }

@@ -1,0 +1,42 @@
+<section class="button__container">
+  <button
+    (click)="addImage()"
+    class="button button_download"
+  >Загрузить</button>
+  <button
+    (click)="deleteCatalog()"
+    class="button button_delete"
+  >Удалить</button>
+  <button
+    (click)="groupImages()"
+    class="button button_group"
+  > {{ btnState }} </button>
+</section>
+
+<div class="catalog__container">
+  <div *ngIf="error"> {{error}} </div>
+  <div
+    class="card"
+    *ngFor="let image of arrayImages">
+    <img
+      [src]="image.url"
+      alt="Картинка"
+      class="card__image">
+  </div>
+
+  <div *ngIf="btnState === 'Разгруппировать'">
+    <div *ngFor="let image of arrGroupImages">
+      <h3 [textContent]="image.tag"></h3>
+      <div
+        class="card"
+      >
+        <img
+          [src]="image.url"
+          alt="Картинка"
+          class="card__image">
+      </div>
+    </div>
+
+  </div>
+
+</div>
