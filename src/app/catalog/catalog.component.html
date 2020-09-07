@@ -14,9 +14,10 @@
 </section>
 
 <div class="catalog__container">
-  <div class="card" *ngFor="let image of imagesUrl">
+  <div *ngIf="error"> {{error}} </div>
+  <div class="card" *ngFor="let image of arrayImages">
     <img
-      [src]="image"
+      [src]="image.url"
       alt="Картинка"
       class="card__image">
   </div>

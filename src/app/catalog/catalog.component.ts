@@ -1,33 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { RequestService } from '../services/request.service';
+
+interface ImageData {
+  tag: string;
+  url: string;
+}
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
 })
-export class CatalogComponent implements OnInit {
+export class CatalogComponent {
 
-  public imagesUrl: any = [];
+  public arrayImages: ImageData[] = [];
+  public error: any;
   public btnState = 'Группировать';
 
   constructor(private requestService: RequestService) {
   }
 
-  ngOnInit(): void {
-  }
-
   public addImage(): void {
-    this.requestService.getImage().subscribe((image: any) => {
-      const url = image.data.image_url;
+    this.requestService.getImage().subscribe(
+      (image: any) => {
 
-      this.imagesUrl.push(url);
-    });
+        // делаем объект типа ImageData для хранения информации каждой картинки
+      const imageData = {
+        tag: this.requestService.tag,
+        url: image.data.image_url
+      };
+
+      this.arrayImages.push(imageData);
+    },
+      (error: any) => this.error = 'Произошла ошибка. Проверьте соединение и повторите попытку.');
   }
 
   public deleteCatalog(): void {
-    this.imagesUrl = [];
+    this.arrayImages = [];
   }
 
   // изменение текста кнопки группировки
@@ -43,6 +53,5 @@ export class CatalogComponent implements OnInit {
       this.btnState = twoStateBtn.group;
     }
   }
-
 
 }
