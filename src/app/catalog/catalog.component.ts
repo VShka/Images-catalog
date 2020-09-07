@@ -15,6 +15,7 @@ interface ImageData {
 export class CatalogComponent {
 
   public arrayImages: ImageData[] = [];
+  public arrGroupImages: ImageData [] = [];
   public error: any;
   public btnState = 'Группировать';
 
@@ -40,8 +41,23 @@ export class CatalogComponent {
     this.arrayImages = [];
   }
 
+  public groupImages(): void {
+    this.toggleState();
+
+    this.arrayImages.filter( (item) => {
+      if (item.tag === item.tag) {
+        const imageData = {
+          tag: item.tag,
+          url: item.url
+        };
+        this.arrGroupImages.push(imageData);
+        this.deleteCatalog();
+      }
+    });
+  }
+
   // изменение текста кнопки группировки
-  public toggleState(): void {
+  private toggleState(): void {
     const twoStateBtn = {
       group: 'Группировать',
       ungroup: 'Разгруппировать'
